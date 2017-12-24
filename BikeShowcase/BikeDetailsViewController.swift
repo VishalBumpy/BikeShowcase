@@ -9,6 +9,7 @@
 import UIKit
 
 class BikeDetailsViewController: UIViewController {
+    var bikeID:String!
 
     override func viewDidLoad() {
         super.viewDidLoad()

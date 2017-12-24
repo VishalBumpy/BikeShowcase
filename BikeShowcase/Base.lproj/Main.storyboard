@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FMr-MC-HP4">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" id="FMr-MC-HP4" customClass="BikeTableViewCell" customModule="BikeShowcase" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FMr-MC-HP4" id="H2N-V0-K1E">
@@ -50,8 +50,16 @@
                                                 <constraint firstAttribute="trailing" secondItem="5ac-VG-Omo" secondAttribute="trailing" constant="13" id="r3h-gW-caL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="bikeName" destination="jA6-ID-MQG" id="nb8-Jq-tqX"/>
+                                            <outlet property="detailsImageView" destination="5ac-VG-Omo" id="oRe-hh-LPd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Ea7-Zp-A6a"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xfP-MP-q0x"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -64,6 +72,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="N6Z-m6-Lxd"/>
+                    <connections>
+                        <outlet property="tableView" destination="V9O-Tn-bd0" id="FNz-l1-TtB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,7 +83,7 @@
         <!--Bike Details View Controller-->
         <scene sceneID="2ly-74-sHA">
             <objects>
-                <viewController id="Eli-n1-KOk" customClass="BikeDetailsViewController" customModule="BikeShowcase" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BikeDetailsViewController" id="Eli-n1-KOk" customClass="BikeDetailsViewController" customModule="BikeShowcase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ajq-jA-7XS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
