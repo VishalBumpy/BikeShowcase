@@ -18,6 +18,7 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var searchController = UISearchController()
    
+    var myActivityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,8 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         //setting up search bar
           setUpSearchBar()
         
-        
+        //setting up activity indicator
+        _ = Utils.customActivityIndicatory(self.view, startAnimate: true)
         //call the api
         self.downloadJsonWithURL()
     }
@@ -62,14 +64,14 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
                         
                         if let bikeDict = bike as? NSDictionary {
                             
-                            let bid = bikeDict.value(forKey: "id") as? String
+                            let bid = bikeDict.value(forKey: "id") as? String ?? "No bike ID"
                             
                             let cnameArr = bikeDict.value(forKey: "company") as? NSArray
                             let cname = cnameArr?.firstObject as? String ?? "No company name"
                         
-                            let name = bikeDict.value(forKey: "name") as? String ?? "No Bike name"
+                            let name = bikeDict.value(forKey: "name") as? String ?? "No bike name"
                             
-                            CoreDataManager.storeObj(bid: bid!, cname: cname, name: name)
+                            CoreDataManager.storeObj(bid: bid, cname: cname, name: name)
                             
                         }
                     }
@@ -85,11 +87,17 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func updateData() {
         
-        bItemArray = CoreDataManager.fetchObj()
-        
-         OperationQueue.main.addOperation({
-              self.tableView.reloadData()
-        })
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            self.bItemArray = CoreDataManager.fetchObj()
+            
+            DispatchQueue.main.async {
+                print("This is run on the main queue, after the previous code in outer block")
+                //removing activity indicator and loading table view
+                _ = Utils.customActivityIndicatory(self.view, startAnimate: false)
+                self.tableView.reloadData()
+            }
+        }
         
     }
     //MARK: Table view
@@ -110,7 +118,10 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let bkItem = self.bItemArray[indexPath.row]
         
-        cell.bikeName.text = bkItem.name
+        let string1 = "Bike Name->> "
+        let appendString = string1 + bkItem.name!
+        cell.bikeName.text = appendString
+        
         cell.detailsImageView.image = UIImage(named: "details")
         cell.bikeCompanyName.text = bkItem.cname
         

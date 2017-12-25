@@ -85,20 +85,40 @@ class CoreDataManager: NSObject {
     class func storeObj(bid:String,cname:String,name:String) {
         let context = getContext()
         
-        let entity = NSEntityDescription.entity(forEntityName: "BEntity", in: context)
         
-        let managedObj = NSManagedObject(entity: entity!, insertInto: context)
         
-        managedObj.setValue(bid, forKey: "bid")
-        managedObj.setValue(cname, forKey: "cname")
-        managedObj.setValue(name, forKey: "name")
+        //check if the bike id record is already present and then insert
         
+        let predicate = NSPredicate(format: "bid == %@", bid)
+        let fetchRequest:NSFetchRequest<BEntity> = BEntity.fetchRequest()
+        fetchRequest.predicate = predicate
+        fetchRequest.fetchLimit = 1
         do {
-            try context.save()
-            print("saved!")
-        } catch {
+        let count = try context.fetch(fetchRequest)
+            if(count.count == 0){
+                
+                let entity = NSEntityDescription.entity(forEntityName: "BEntity", in: context)
+                
+                let managedObj = NSManagedObject(entity: entity!, insertInto: context)
+                
+                managedObj.setValue(bid, forKey: "bid")
+                managedObj.setValue(cname, forKey: "cname")
+                managedObj.setValue(name, forKey: "name")
+                
+                do {
+                    try context.save()
+                    print("saved!")
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }catch {
             print(error.localizedDescription)
         }
+        
+        
+        
     }
     
     //MARK: fetch all the objects from core data
@@ -126,10 +146,16 @@ class CoreDataManager: NSObject {
         }
         
         do {
-            let fetchResult = try getContext().fetch(fetchRequest)
+            let managedObjectContext = sharedInstanceCD.persistentContainer.newBackgroundContext()
+            let fetchResult = try managedObjectContext.fetch(fetchRequest)
             
             for item in fetchResult {
-                let val = bItem(bid: item.bid!, cname: item.cname!, name: item.name!)
+                
+                let bidd = item.bid != nil ? item.bid! : "No bike ID"
+                let cnamee = item.cname != nil ? item.cname! : "No company name"
+                let namee = item.name != nil ? item.name! : "No bike name"
+                
+                let val = bItem(bid: bidd, cname: cnamee, name: namee)
                 aray.append(val)
                 
             }
@@ -149,7 +175,8 @@ class CoreDataManager: NSObject {
         
         do {
             print("deleting all contents")
-            try getContext().execute(deleteRequest)
+            let managedObjectContext = sharedInstanceCD.persistentContainer.newBackgroundContext()
+            try managedObjectContext.execute(deleteRequest)
         }catch {
             print(error.localizedDescription)
         }
