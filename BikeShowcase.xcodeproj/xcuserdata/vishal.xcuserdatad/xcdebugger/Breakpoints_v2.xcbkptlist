@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BikeShowcase/BikeTableViewController.swift"
+            timestampString = "535927298.766954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "updateData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BikeShowcase.BikeTableViewController.updateData() -&gt; ()"
+                  moduleName = "BikeShowcase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishal/Desktop/BikeShowcase/BikeShowcase/BikeTableViewController.swift"
+                  timestampString = "535927042.294235"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "138">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in BikeShowcase.BikeTableViewController.updateData() -&gt; ()"
+                  moduleName = "BikeShowcase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/vishal/Desktop/BikeShowcase/BikeShowcase/BikeTableViewController.swift"
+                  timestampString = "535927042.297117"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

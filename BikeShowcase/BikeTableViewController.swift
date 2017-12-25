@@ -47,6 +47,9 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func downloadJsonWithURL() {
         let url = NSURL(string: urlString)
+        
+        autoreleasepool {
+            
         URLSession.shared.dataTask(with: (url as URL?)!, completionHandler: {(data, response, error) -> Void in
             
             if let jsonObj = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary {
@@ -62,11 +65,11 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
                             let bid = bikeDict.value(forKey: "id") as? String
                             
                             let cnameArr = bikeDict.value(forKey: "company") as? NSArray
-                            let cname = cnameArr?.firstObject as? String ?? "noname"
+                            let cname = cnameArr?.firstObject as? String ?? "No company name"
                         
-                            let name = bikeDict.value(forKey: "name") as? String
+                            let name = bikeDict.value(forKey: "name") as? String ?? "No Bike name"
                             
-                            CoreDataManager.storeObj(bid: bid!, cname: cname, name: name!)
+                            CoreDataManager.storeObj(bid: bid!, cname: cname, name: name)
                             
                         }
                     }
@@ -76,6 +79,7 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 
             }
         }).resume()
+        }
     }
    
     
@@ -88,10 +92,15 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         })
         
     }
-    
+    //MARK: Table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return self.bItemArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return 80.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,6 +112,7 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         cell.bikeName.text = bkItem.name
         cell.detailsImageView.image = UIImage(named: "details")
+        cell.bikeCompanyName.text = bkItem.cname
         
         return cell
     }

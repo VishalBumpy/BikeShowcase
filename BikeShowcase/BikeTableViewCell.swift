@@ -12,6 +12,7 @@ class BikeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var detailsImageView: UIImageView!
     @IBOutlet weak var bikeName: UILabel!
+    @IBOutlet weak var bikeCompanyName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

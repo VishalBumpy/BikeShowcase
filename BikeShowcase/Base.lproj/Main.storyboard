@@ -21,36 +21,52 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" id="FMr-MC-HP4" customClass="BikeTableViewCell" customModule="BikeShowcase" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" rowHeight="80" id="FMr-MC-HP4" customClass="BikeTableViewCell" customModule="BikeShowcase" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FMr-MC-HP4" id="H2N-V0-K1E">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jA6-ID-MQG">
-                                                    <rect key="frame" x="20" y="9" width="302" height="0.0"/>
+                                                    <rect key="frame" x="20" y="9" width="302" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="gpB-rz-DGj"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ac-VG-Omo">
-                                                    <rect key="frame" x="322" y="0.0" width="40" height="40"/>
+                                                    <rect key="frame" x="322" y="19" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Lsq-16-1Je"/>
                                                         <constraint firstAttribute="height" constant="40" id="kcw-xZ-iMu"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3i1-uI-prq">
+                                                    <rect key="frame" x="20" y="38" width="302" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="0VU-Bi-tly"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5ac-VG-Omo" firstAttribute="top" secondItem="H2N-V0-K1E" secondAttribute="top" id="7nx-ho-Ask"/>
+                                                <constraint firstItem="5ac-VG-Omo" firstAttribute="top" secondItem="H2N-V0-K1E" secondAttribute="top" constant="19" id="7nx-ho-Ask"/>
                                                 <constraint firstItem="jA6-ID-MQG" firstAttribute="top" secondItem="H2N-V0-K1E" secondAttribute="top" constant="9" id="7xc-mj-O3u"/>
+                                                <constraint firstItem="5ac-VG-Omo" firstAttribute="leading" secondItem="3i1-uI-prq" secondAttribute="trailing" id="B3L-hg-VJD"/>
+                                                <constraint firstItem="3i1-uI-prq" firstAttribute="top" secondItem="jA6-ID-MQG" secondAttribute="bottom" constant="8" id="Kbt-E0-88v"/>
                                                 <constraint firstItem="5ac-VG-Omo" firstAttribute="leading" secondItem="jA6-ID-MQG" secondAttribute="trailing" id="WZm-HQ-acd"/>
                                                 <constraint firstItem="jA6-ID-MQG" firstAttribute="leading" secondItem="H2N-V0-K1E" secondAttribute="leading" constant="20" id="o9P-2l-I55"/>
                                                 <constraint firstAttribute="trailing" secondItem="5ac-VG-Omo" secondAttribute="trailing" constant="13" id="r3h-gW-caL"/>
+                                                <constraint firstItem="3i1-uI-prq" firstAttribute="leading" secondItem="H2N-V0-K1E" secondAttribute="leading" constant="20" id="yRE-zu-4XW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bikeCompanyName" destination="3i1-uI-prq" id="n1Y-VN-gTh"/>
                                             <outlet property="bikeName" destination="jA6-ID-MQG" id="nb8-Jq-tqX"/>
                                             <outlet property="detailsImageView" destination="5ac-VG-Omo" id="oRe-hh-LPd"/>
                                         </connections>
