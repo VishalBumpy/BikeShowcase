@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C96FF8721FF04C1300D7B6CE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FF8711FF04C1300D7B6CE /* CoreDataManager.swift */; };
 		C96FF8741FF19BB700D7B6CE /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FF8731FF19BB700D7B6CE /* Utils.swift */; };
+		C96FF8761FF1BBE400D7B6CE /* BikeDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FF8751FF1BBE400D7B6CE /* BikeDetailsTableViewCell.swift */; };
+		C96FF8781FF1CBC500D7B6CE /* Reachibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96FF8771FF1CBC500D7B6CE /* Reachibility.swift */; };
 		C9B08FC11FEFE0010070F5C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B08FC01FEFE0010070F5C7 /* AppDelegate.swift */; };
 		C9B08FC61FEFE0010070F5C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B08FC41FEFE0010070F5C7 /* Main.storyboard */; };
 		C9B08FC91FEFE0010070F5C7 /* BikeShowcase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9B08FC71FEFE0010070F5C7 /* BikeShowcase.xcdatamodeld */; };
@@ -34,6 +36,8 @@
 /* Begin PBXFileReference section */
 		C96FF8711FF04C1300D7B6CE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		C96FF8731FF19BB700D7B6CE /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C96FF8751FF1BBE400D7B6CE /* BikeDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		C96FF8771FF1CBC500D7B6CE /* Reachibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachibility.swift; sourceTree = "<group>"; };
 		C9B08FBD1FEFE0010070F5C7 /* BikeShowcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BikeShowcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B08FC01FEFE0010070F5C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9B08FC51FEFE0010070F5C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,11 +95,13 @@
 			children = (
 				C9B08FC01FEFE0010070F5C7 /* AppDelegate.swift */,
 				C9B08FC41FEFE0010070F5C7 /* Main.storyboard */,
+				C96FF8771FF1CBC500D7B6CE /* Reachibility.swift */,
 				C96FF8731FF19BB700D7B6CE /* Utils.swift */,
 				C96FF8711FF04C1300D7B6CE /* CoreDataManager.swift */,
 				C9B08FE71FEFEF410070F5C7 /* BikeTableViewCell.swift */,
 				C9B08FE31FEFE7F50070F5C7 /* BikeTableViewController.swift */,
 				C9B08FE51FEFE8150070F5C7 /* BikeDetailsViewController.swift */,
+				C96FF8751FF1BBE400D7B6CE /* BikeDetailsTableViewCell.swift */,
 				C9B08FE91FEFF6170070F5C7 /* Images */,
 				C9B08FCA1FEFE0010070F5C7 /* Assets.xcassets */,
 				C9B08FCC1FEFE0010070F5C7 /* LaunchScreen.storyboard */,
@@ -231,6 +237,8 @@
 				C9B08FC91FEFE0010070F5C7 /* BikeShowcase.xcdatamodeld in Sources */,
 				C96FF8741FF19BB700D7B6CE /* Utils.swift in Sources */,
 				C9B08FE81FEFEF410070F5C7 /* BikeTableViewCell.swift in Sources */,
+				C96FF8781FF1CBC500D7B6CE /* Reachibility.swift in Sources */,
+				C96FF8761FF1BBE400D7B6CE /* BikeDetailsTableViewCell.swift in Sources */,
 				C9B08FE61FEFE8150070F5C7 /* BikeDetailsViewController.swift in Sources */,
 				C9B08FC11FEFE0010070F5C7 /* AppDelegate.swift in Sources */,
 			);

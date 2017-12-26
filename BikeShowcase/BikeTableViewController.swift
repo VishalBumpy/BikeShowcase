@@ -18,7 +18,6 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     var searchController = UISearchController()
    
-    var myActivityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +26,24 @@ class BikeTableViewController: UIViewController, UITableViewDelegate, UITableVie
         //setting up search bar
           setUpSearchBar()
         
-        //setting up activity indicator
-        _ = Utils.customActivityIndicatory(self.view, startAnimate: true)
-        //call the api
-        self.downloadJsonWithURL()
+        //Check network connectivity
+        if Reachability.isConnectedToNetwork(){
+            //setting up activity indicator
+            _ = Utils.customActivityIndicatory(self.view, startAnimate: true)
+            //call the api
+            self.downloadJsonWithURL()
+        }
+        else{
+            
+            let alertController = UIAlertController(title: "No Internet", message: "Please check your connectivity and retry !", preferredStyle: .alert)
+            
+            let action1 = UIAlertAction(title: "Ok", style: .default) { (action:UIAlertAction) in
+                print("You've pressed ok");
+            }
+            
+            alertController.addAction(action1)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     //MARK: - search bar related
